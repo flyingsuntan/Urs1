@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>好友添加</title>
+</head>
+<body>
+<table border="1" align="center" width="50%">
+    <caption align="center">好友添加</caption>
+    <tr>
+        <td width="30%">好友名</td>
+        <td width="50%">
+           操作
+        </td>
+    </tr>
+    <?php foreach ($data as $k => $v):?>
+    <tr>
+        <td><?php echo $v['user_name']?></td>
+        <td>
+            <a href="?p=front&c=Friends&a=agree&id=<?php echo $v['id']?>&qid=<?php echo $v['qid']?>" >同意</a>    <a href="?p=front&c=Friends&a=refuse&id=<?php echo $v['id']?>" onclick="return confirm('确定拒绝吗？')">拒绝</a>
+        </td>
+
+    </tr>
+<?php endforeach;?>
+</table>
+</body>
+</html>

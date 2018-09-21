@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="?p=front&c=User&a=pic" method="post" enctype="multipart/form-data">
+    <table>
+        <tr id="auto_thumb_1">
+            <td class="label"> 头像：</td>
+            <td id="auto_thumb_3">
+                <input type="file" name="user_pic" size="35" >
+                <br>
+                <input type="text" size="40" value="<?php echo $data['user_pic']?>" style="color:#aaa;" name="user_pic_url" >
+                <img src="<?php echo './public/uploads/'.$data['user_pic']?>" border="0" style="width: 100px;height: 100px">
+                <br>
+            </td>
+        </tr>
+    </table>
+    <tr>
+        <input type="hidden" name="id" value="<?php echo $data['id']?>">
+        <input type="submit" value="提交">
+    </tr>
+</form>
+
+</body>
+</html>

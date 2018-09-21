@@ -1,0 +1,51 @@
+<?php ini_set('date.timezone','Asia/Shanghai');?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>站内信首页</title>
+</head>
+<body>
+<p align="center">站内信列表</p>
+<hr />
+<table border="1" align="center" width="100%">
+    <caption align="center">未读信息</caption>
+    <tr>
+        <td width="100%" colspan="3">未读信息</td>
+    </tr>
+
+    <tr>
+        <td width="30%">发件人</td>
+        <td width="50%">标题</td>
+        <td width="20%">发件时间</td>
+    </tr>
+
+    <?php foreach($res_read_no as $k => $v):?>
+
+    <tr>
+        <td><?php echo $v['user_name']?></td>
+        <td> <a href="?p=front&c=User&a=messages_read&id=<?php echo $v['id']?>"><?php echo $v['title']?></a></td>
+        <td><?php echo date('Y-m-d H:i:s',$v['sendtime'])?></td>
+    </tr>
+    <?php endforeach;?>
+</table>
+<table border="1" align="center" width="100%">
+    <caption align="center">已读信息</caption>
+    <tr>
+        <td width="30%">发件人</td>
+        <td width="50%">标题</td>
+        <td width="20%">发件时间</td>
+    </tr>
+
+    <?php foreach($res_read_yes as $k => $v):?>
+
+    <tr>
+        <td><?php echo $v['user_name']?></td>
+        <td> <a href="?p=front&c=User&a=messages_read&id=<?php echo $v['id']?>"><?php echo $v['title']?></a></td>
+        <td><?php echo date('Y-m-d H:i:s',$v['sendtime'])?></td>
+    </tr>
+    <?php endforeach;?>
+</table>
+</body>
+</html>
+

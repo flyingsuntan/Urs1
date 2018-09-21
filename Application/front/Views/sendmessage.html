@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="?p=front&c=User&a=sendmessage" method="post">
+    <table>
+        <tr>
+            <td >好友：</td>
+        </tr>
+        <tr width="100%">
+            <td width="50%">
+                <input type="text" name="f_name" value="" style="width:20%">
+            </td>
+        </tr>
+        <tr>
+            <td>标题：</td>
+        </tr>
+        <tr>
+            <td width="500">
+                <input type="text" name="title" >
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <textarea id="message" name="message"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <input type="submit" value="发送">
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
+
+
+<!-- 加载编辑器的容器 -->
+
+<!-- 配置文件 -->
+<script type="text/javascript" src="./public/umeditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="PUBLIC/umeditor/ueditor.all.js"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+    var ue = UE.getEditor('message');
+</script>
+
+
+

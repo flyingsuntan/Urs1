@@ -1,0 +1,46 @@
+<?php ini_set('date.timezone','Asia/Shanghai');?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>站内信首页</title>
+</head>
+<body>
+<p align="center" style="font-size: 30px">系统消息列表</p>
+<hr />
+<table border="1" align="center" width="100%">
+    <caption align="center" style="font-size: 20px;color: #00b7ee">未读信息</caption>
+
+
+    <tr>
+        <td width="50%" bgcolor="#a9a9a9">标题</td>
+        <td width="20%" bgcolor="#a9a9a9">发件时间</td>
+    </tr>
+
+    <?php foreach($res['no_read'] as $k => $v):?>
+
+    <tr>
+        <td> <a href="?p=front&c=System&a=detailed&id=<?php echo $v['id']?>"><?php echo $v['title']?></a></td>
+        <td><?php echo date('Y-m-d H:i:s',$v['sendtime'])?></td>
+    </tr>
+    <?php endforeach;?>
+</table>
+<table border="1" align="center" width="100%">
+    <caption align="center" style="font-size: 20px;color: #00b7ee">已读信息</caption>
+
+    <tr>
+        <td width="50%" bgcolor="#a9a9a9">标题</td>
+        <td width="20%" bgcolor="#a9a9a9">发件时间</td>
+    </tr>
+
+    <?php foreach($res['is_read'] as $k => $v):?>
+
+    <tr>
+        <td> <a href="?p=front&c=System&a=detailed&id=<?php echo $v['id']?>"><?php echo $v['title']?></a></td>
+        <td><?php echo date('Y-m-d H:i:s',$v['sendtime'])?></td>
+    </tr>
+    <?php endforeach;?>
+</table>
+</body>
+</html>
+

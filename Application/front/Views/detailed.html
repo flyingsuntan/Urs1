@@ -1,0 +1,19 @@
+<?php ini_set('date.timezone','Asia/Shanghai');?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="0" align="center" width="60%">
+    <p align="center" style="color: #00a0e9;font-size:30px"><?php echo $data['title']?></p>
+    <tr align="center" ><td align="right"style="font-size: 5px;" width="50%"><?php echo date('Y-m-d H:i:s',$data['sendtime'])?>&nbsp;&nbsp;</td>  <td style="font-size: 5px;"  align="left">&nbsp;&nbsp;点击量：<?php echo $data['clicks']?></td>
+    </tr>
+    <tr>
+        <td align="center" style="font-size: 20px" width="100%" colspan="2"><?php echo $data['content']?><td>
+    </tr>
+
+</table>
+</body>
+</html>

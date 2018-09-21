@@ -1,0 +1,45 @@
+<?php ini_set('date.timezone','Asia/Shanghai');?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>好友列表</title>
+</head>
+<body>
+<tr><td><a href="?p=front&c=Friends&a=add">添加好友</a> </td></tr>
+<tr><td><a href="?p=front&c=Friends&a=addlst">您有<?php if($count){echo $count;}else{echo 0;}?>条好友请求 </a></td></tr>
+<p align="center">好友列表</p>
+<hr />
+<table border="1" align="center" width="50%">
+    <tr>
+        <td width="30%">好友名</td>
+        <td width="50%">操作</td>
+    </tr>
+    <?php foreach($data['defriend_no'] as $k => $v):?>
+    <tr>
+        <td><?php echo $v['user_name']?></td>
+        <td> <a href="?p=front&c=User&a=friendsendmessage&fname=<?php echo $v['user_name']?>">发送信息</a>     <a href="?p=front&c=Friends&a=del&fname=<?php echo $v['user_name']?>" onclick="return confirm('确定要删除好友吗？')">删除好友</a>
+            <a href="?p=front&c=Friends&a=defriend&fname=<?php echo $v['user_name']?>" onclick="return confirm('确定要拉黑好友吗？')">拉黑好友</a>
+        </td>
+<?php endforeach;?>
+    </tr>
+
+    <table border="1" align="center" width="50%">
+        <p align="center">拉黑好友列表</p>
+        <hr />
+        <tr>
+            <td width="30%">好友名</td>
+            <td width="50%">操作</td>
+        </tr>
+        <?php foreach($data['defriend_yes'] as $k => $v):?>
+        <tr>
+            <td><?php echo $v['user_name']?></td>
+            <td>     <a href="?p=front&c=Friends&a=del&fname=<?php echo $v['user_name']?>" onclick="return confirm('确定要删除好友吗？')">删除好友</a>
+                <a href="?p=front&c=Friends&a=nodefriend&fname=<?php echo $v['user_name']?>">取消拉黑好友</a>
+            </td>
+            <?php endforeach;?>
+        </tr>
+</table>
+</body>
+</html>
+

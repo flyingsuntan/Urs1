@@ -1,0 +1,48 @@
+<?php ini_set('date.timezone','Asia/Shanghai');?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1" align="center" width="100%">
+    <caption align="center"><?php echo $res1['title']?></caption>
+    <tr>
+        <td width="30%">发件人</td>
+        <td width="50%">内容</td>
+        <td width="20%">发件时间</td>
+    </tr>
+    <?php foreach ($res as $k => $v):?>
+    <tr>
+        <td><?php echo $v['user_name']?></td>
+        <td> <?php echo $v['message']?></td>
+        <td><?php echo date('Y-m-d H:i:s',$v['sendtime'])?></td>
+    </tr>
+    <?php endforeach;?>
+</table>
+<form action="?p=front&c=User&a=reply_message" method="post">
+    <tr>
+        <td>
+            <textarea id="message" name="message"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="hidden" name="title" value="<?php echo $res1['title']?>">
+            <input type="hidden" name="pid" value="<?php echo $res1['id']?>">
+            <input type="hidden" name="fname" value="<?php echo $res1['user_name']?>">
+            <input type="submit" value="回复">
+        </td>
+    </tr>
+</form>
+</body>
+</html>
+<!-- 配置文件 -->
+<script type="text/javascript" src="./public/umeditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="PUBLIC/umeditor/ueditor.all.js"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+    var ue = UE.getEditor('message');
+</script>

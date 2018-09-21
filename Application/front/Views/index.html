@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<table >
+    <tr style="font-size: 10px;float: right">
+        <td>用户名：</td><td align="right" ><?php echo $_SESSION['user_name']?></td>
+        <!--好友消息-->
+        <?php
+        if($count != 0){
+            echo "<td><a href='?p=front&c=User&a=Receive_message' >您有".$count."条信息</a></td>";
+        }else{
+        echo "<td><a href='?p=front&c=User&a=Receive_message' >您有0条信息</a></td>";
+        }
+    ?>
+        <!--系统消息-->
+        <?php
+        if($count1 != 0){
+            echo "<td><a href='?p=front&c=System&a=lst' >您有".$count1."条系统信息</a></td>";
+        }else{
+        echo "<td><a href='?p=front&c=System&a=lst' >您有0条系统信息</a></td>";
+        }
+        ?>
+        <img src="<?php echo './public/uploads/'.$_SESSION['user_pic']?>" border="0" style="width: 20px;height: 20px">
+        <td align="right"><a href="?p=front&c=User&a=mpd&id=<?php echo $_SESSION['user_id']?>" >修改个人资料</a></td>
+        <td><?php if($_SESSION['user_id']==1){echo "<a href='?p=front&c=System&a=add'>发送系统消息</a>";}?></td>
+        <td><a href="?p=front&c=Login&a=logout">退出</a> </td>
+    </tr>
+    <tr>
+        <td><a href="?p=front&c=User&a=sendmessage">发送站内信</a> </td>
+    </tr>
+    <tr>
+        <td><a href="?p=front&c=Friends&a=lst">我的好友</a> </td>
+    </tr>
+</table>
+</body>
+</html>

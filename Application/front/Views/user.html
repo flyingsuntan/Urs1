@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户中心</title>
+</head>
+<body>
+</tr>
+<td><a href="?p=front&c=User&a=pic&id=<?php echo $data['id']?>">修改头像</a> </td>
+<tr>
+<form method="post" action="?p=front&c=User&a=mpd&id=<?php echo $data['id']?>" enctype="multipart/form-data">
+    <table>
+        <td>
+            <td align="left">用户名：</td>
+            <td align="left">
+                <input type="text" name="user_name" value="<?php echo $data['user_name']?>">
+            </td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td>
+                <input type="password" name="password" value="">
+                <img src="">
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td><input type="submit" value="提交"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
